@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	skip_before_action :require_valid_user!
-	before_action :reset_session
+	# skip_before_action :require_valid_user!
+	# before_action :reset_session
 
 	def new
 		@user = User.new
@@ -13,8 +13,12 @@ class UsersController < ApplicationController
 			flash[:success] =  'You have successfully created an account.  Please sign in to continue.'
 			redirect_to signin_path
 		else
-			render :new
+			render 'new'
 		end
+	end
+
+	def destroy
+		redirect_to root_path
 	end
 
 	private

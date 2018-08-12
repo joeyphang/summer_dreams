@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	skip_before_action :require_valid_user!, except: [:destroy]
+	# skip_before_action :require_valid_user!, except: [:destroy]
 
 	def new
 	end
@@ -9,8 +9,12 @@ class SessionsController < ApplicationController
 		@user = User.find_by(email: session_params[:email])
 
 		if @user && @user.authenticate(session_params[:password_digest])
-			session[:user_id] = @user.id
-			flash[:success] = 'Welcome back!'
+			if params[:remember_me]
+				cookies.permanent[:remember_digest] = @user.remember_digest
+			else 
+				cookies[:remember_digest] = @user.remember_digest
+			end
+			flash[:success] = 'Hello There!'
 			redirect_to root_path
 		else
 			flash[:error] = 'Invalid email/password combination'
@@ -19,6 +23,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
+		cookies.delete(:remember_digest)
 		reset_session
 	end
 
