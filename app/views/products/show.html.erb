@@ -1,0 +1,16 @@
+<div class="container fluid text-center">
+	
+	<% if @product.avatar != nil %>
+		<% @product.avatar.each do |img| %>
+		<%= image_tag img.url, :class => "img-fluid" %>
+		<% end %>
+	<% end %>
+
+	<h5><%= @product.title %></h5>
+	<h5><%= @product.description %></h5>
+	<h5>RM <%= @product.price %></h5>
+
+	<a href="<%= @product.id %>/edit ">Update</a> |
+	<%= link_to "Delete", product_path(@product.id), :method => :delete, data: {:confirm => "Are you sure?"} %>
+
+</div>

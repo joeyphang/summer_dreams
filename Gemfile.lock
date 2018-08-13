@@ -88,8 +88,14 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.5.7)
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
+    instagram_api_client (0.2.1)
+      hashie
+      httparty
+      plural
     io-like (0.3.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -139,6 +145,7 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
     pg (1.0.0)
+    plural (0.1.0)
     public_suffix (3.0.2)
     puma (3.12.0)
     rack (2.0.5)
@@ -233,6 +240,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   figaro
+  instagram_api_client
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)

@@ -1,0 +1,35 @@
+<div class="row text-center" style="padding-left:10px; padding-right: 10px;">
+
+	<% @product.order(:title).each_with_index do |product, index| %>
+
+	<div class="col-sm-4">
+		<div class="card my-3">
+			<!-- Header -->
+			<div class="card-header">
+				<%if product.avatar != nil %>
+					<img class="img-fluid" style="width: auto; height: auto;" src= <%= product.avatar[0]%> />
+				<% else %>
+					<img class="img-fluid" style="width: auto; height: auto;" src= "https://www.nato-pa.int/sites/default/files/default_images/default-image.jpg"/>
+				<% end %>
+			</div>
+			<!-- Body -->
+			<div class="card-body">
+				<p>
+					<%= product.title %> </br>
+					<%= product.description %> </br>
+					RM <%= product.price %>
+				</p>
+			</div>
+			<!-- Footer -->
+			<div class="card-footer bg-light"> 
+				<a href="products/<%= product.id %>">Details</a> | 
+				<a href="products/<%= product.id %>/edit ">Update</a> |
+				<%= link_to "Delete", product_path(product.id), :method => :delete, data: {:confirm => "Are you sure?"} %>
+			</div>
+		</div>
+		
+	</div>
+
+	<% end %>
+
+</div>

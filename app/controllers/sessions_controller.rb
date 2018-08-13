@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
 
 	def create
 		@user = User.find_by_email(params[:session][:email])
-		byebug
 
 		if @user && @user.authenticate(params[:session][:password])
 			session[:user_id] = @user.id
@@ -19,11 +18,9 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		redirect_to root_path
-	end
-
-	def session_params
-		params.require(:session).permit(:email, :password)
+	    session.delete(:user_id)
+	    @current_user = nil
+		redirect_to root_path, :notice => 'Successfully signed out.'
 	end
 
 	def create_from_omniauth
@@ -45,6 +42,12 @@ class SessionsController < ApplicationController
 
 	  sign_in(user)
 	  redirect_to @next, :notice => @notice
+	end
+
+	private
+
+	def session_params
+		params.require(:session).permit(:email, :password)
 	end
 
 end

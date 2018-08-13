@@ -1,0 +1,21 @@
+<div class="container fluid text-center">
+<%= @product.title %>
+
+<%= form_with scope: :product, url: product_path(@product), method: :patch do |form| %>
+
+		<%= form.label :title %> :
+		<%= form.text_field :title, autocomplete: :off %> <br/>
+
+		<%= form.label :description %> :
+		<%= form.text_field :description, autocomplete: :off %> <br/>
+
+		<%= form.label :price %> :
+		<%= form.number_field :price %> <br/>
+
+		<%= form.label :Upload_Image %> :
+		<%= form.file_field :avatar, multiple:true %> <br/>
+
+<%= form.submit %>
+
+<% end %>
+</div>
