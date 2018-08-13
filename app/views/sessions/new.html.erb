@@ -1,3 +1,4 @@
+<div class="container fluid">
 <h1>Please Sign In</h1>
 
 <%- if flash[:error] %>
@@ -11,7 +12,7 @@
     <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
 
     <%= f.label :password %>
-    <%= f.password_field :password_digest, class: 'form-control', placeholder: 'Password' %>
+    <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
 
     <%= f.label :remember_me %>
     <%= f.check_box :remember_me %>
@@ -20,3 +21,5 @@
 <% end %>
 
 New User? <%= link_to 'Register for special promotions', new_user_path %>
+
+</div>

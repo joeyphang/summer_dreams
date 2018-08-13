@@ -19,30 +19,34 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+
       <% if signed_in? %>
       <li class="nav-item">
         <%= link_to t(".sign_out"), signout_path, method: :delete %>
       </li>
+
       <% else %>
-        <li class="nav-item">
-          <a class="nav-link" href="/signin">Sign In <span class="sr-only">(current)</span></a>
-        </li>
-      <% end %>
+      <li class="nav-item">
+        <a class="nav-link" href="/signin">Sign In</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/google_oauth2">Sign in with Google</a>
+      </li>
 
       <li class="nav-item">
         <a class="nav-link" href="/register">Register</a>
       </li>
 
-       <li class="nav-item">
-        
-      </li>
+      <% end %>
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Product
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">A</a>
-          <a class="dropdown-item" href="#">B</a>
+          <a class="dropdown-item" href="/">All</a>
+          <a class="dropdown-item" href="#">Delivery</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">FAQ</a>
         </div>

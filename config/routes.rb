@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   delete '/signout' => 'sessions#destroy'
 
   resources :sessions, only: [:create]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
+
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
+  resources :products
 
 end

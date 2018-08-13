@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 			flash[:success] =  'You have successfully created an account.  Please sign in to continue.'
 			redirect_to signin_path
 		else
-			render 'new'
+			render :new
 		end
 	end
 
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:first_name, :last_name, :email, :password_digest)
+		params.require(:user).permit(:first_name, :last_name, :email, :password)
 	end
 
 end
