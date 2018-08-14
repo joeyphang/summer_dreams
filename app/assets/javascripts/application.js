@@ -7,7 +7,7 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file. JavaScript code in this file should be added after the last require_* statement.
 //
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// Read Sprockets README (https://github.com/rails/sprockcountryets#sprockets-directives) for details
 // about supported directives.
 //
 //= require rails-ujs
@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function(){
      dataType: 'json',
      success: function(data){
        let check_product_title = document.getElementById("check_product_title");
-       // let city = document.getElementById("city");
        check_product_title.innerHTML = "";
 
        data.forEach(function(product){
@@ -37,3 +36,17 @@ document.addEventListener("DOMContentLoaded", function(){
    })
  });
 })
+
+document.addEventListener("DOMContentLoaded", function(){
+	$('#destroy').on('click', function(){
+		if(confirm("Are you sure?")){
+			$.ajax({
+				url: "/products/" + this.parentElement.id,
+				method: "DELETE",
+				success: function(r){
+
+				}
+		});
+		}
+	});
+});

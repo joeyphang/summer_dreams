@@ -20,7 +20,8 @@ class SessionsController < ApplicationController
 	def destroy
 	    session.delete(:user_id)
 	    @current_user = nil
-		redirect_to root_path, :notice => 'Successfully signed out.'
+		redirect_to root_path
+		flash[:notice] = 'Successfully signed out.'
 	end
 
 	def create_from_omniauth

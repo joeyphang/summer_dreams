@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+	skip_before_action :verify_authenticity_token
+
 	def index
 		@product = Product.all
 	end
@@ -37,7 +39,7 @@ class ProductsController < ApplicationController
 
 	def search
 		@product = Product.all
-        @product = @product.price_range(params[:from],params[:to]) if params[:from].present? || params[:to].present?
+       @product = @product.price_range(params[:from],params[:to]) if params[:from].present? || params[:to].present?
         filtering_params(params).each do |key, value|
         @product = @product.public_send(key, value) if value.present?
           end
@@ -46,13 +48,14 @@ class ProductsController < ApplicationController
               format.html
               format.js { render :layout => false }
               format.json { render json: @product }
-          end 
+          end
 	end
 
 	def destroy
 		@product = Product.find(params[:id])
     	@product.destroy
-    	redirect_to products_path, :notice => "Product DELETED."
+    	redirect_to products_path
+    	flash[:notice] = "Product DELETED."
 	end
 
 	private
@@ -62,7 +65,7 @@ class ProductsController < ApplicationController
 	end
 
 	def filtering_params(params)
-		params.slice(:title)
+		params.slice(:title, :description)
 	end
 
 end

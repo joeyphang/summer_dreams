@@ -1,24 +1,28 @@
 <div class="container fluid">
 
-	<%= form_with  url: search_path, method: :get do |form| %>
-		<%= form.label :title %> :
-		<%= form.text_field :title, autocomplete: :off %> <br/>
+
+<!-- 	<#%= form_with  url: search_path, method: :get do %>
+		<#%= label_tag "title" %> :
+		<#%= text_field_tag :title, "", :id => "title", list:"check_product_title", autocomplete: :off %>
+		<datalist id="check_product_title" ></datalist> <br/>
 
 		<div class=“my-2”>
-			<%= submit_tag "Search", :class => "btn btn-primary" %>
+			<#%= submit_tag "Search", :class => "btn btn-primary" %>
 		</div>
-	<% end %>
+	<#% end %> -->
 
 <div class=“row”>
     <div class=“col-sm-4”>
       <% @product.order(updated_at: :desc).each do |product| %> 
 
-      <% if product.avatar != nil %>
+ <!--      <#% if product.avatar != nil %>
         <img src="<%= product.avatar %>">
-      <% end %>
+        <#% else %> -->
+        <img src="http://s2.favim.com/orig/32/art-film-flowers-grain-hipster-Favim.com-259663.jpg">
+  <!--     <#% end %> -->
 
       <p>Title: <%= product.title %></p>
-      <p>Description <%= product.country %></p>
+      <p>Description: <%= product.description %></p>
 
       <p>Price: RM <%= product.price %></p>
 

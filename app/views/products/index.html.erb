@@ -21,10 +21,10 @@
 				</p>
 			</div>
 			<!-- Footer -->
-			<div class="card-footer bg-light"> 
+			<div id="<%= product.id%>" class="card-footer bg-light"> 
 				<a href="products/<%= product.id %>">Details</a> | 
 				<a href="products/<%= product.id %>/edit ">Update</a> |
-				<%= link_to "Delete", product_path(product.id), :method => :delete, data: {:confirm => "Are you sure?"} %>
+				<a id="destroy">Delete</a>
 			</div>
 		</div>
 		
