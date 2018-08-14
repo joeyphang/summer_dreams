@@ -1,5 +1,5 @@
- # require "instagram"
- #    Instagram.configure do |config|
- #    config.client_id = "YOUR CLIENT ID"
- #    config.access_token = "YOUR ACCESS TOKEN"
- # end
+# InstagramApi.config do |config|
+#   config.access_token = 'put your token here'
+#   config.client_id = 'put your client ID here'
+#   config.client_secret = 'put your client secret here'
+# end

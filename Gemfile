@@ -38,6 +38,7 @@ gem 'carrierwave'
 gem 'instagram_api_client'
 gem 'instagram'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'oembed'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -62,6 +63,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 2.0'
+  gem 'rspec-rails'
+  gem 'rspec'
+  gem 'rspec-given'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
