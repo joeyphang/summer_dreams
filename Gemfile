@@ -39,7 +39,7 @@ gem 'instagram_api_client'
 gem 'instagram'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'oembed'
-
+gem 'bootstrap-sass'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
