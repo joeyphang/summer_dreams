@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	has_many :product, dependent: :destroy
+	has_many :products
 	has_secure_password
  	validates :email,
  				presence: { message: "Email must be filled."},
